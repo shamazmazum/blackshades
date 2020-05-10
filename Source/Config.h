@@ -32,7 +32,7 @@ public:
 
   int thirdperson;
   int nocolors;
-  int visions;
+  bool visions;
 
   //scoring
   const char *hsFile;

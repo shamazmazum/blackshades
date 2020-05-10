@@ -2223,7 +2223,7 @@ void Game::GameTick()
 
     if(IsKeyDown(theKeyMap, psychickey) && !oldvisionkey) {
       oldvisionkey = 1;
-      visions = 1 - visions;
+      config.visions = visions = !visions;
 
       if(visions == 0) {
         flashamount = 1;
