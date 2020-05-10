@@ -358,9 +358,9 @@ void LoadPersonSpriteTexture(const char *fileName, GLuint * textureid)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
-    gluBuild2DMipmaps(GL_TEXTURE_2D, type, tempTexture->sizeX,
-                      tempTexture->sizeY, type, GL_UNSIGNED_BYTE,
-                      tempTexture->data);
+    glTexImage2D(GL_TEXTURE_2D, 0, type, tempTexture->sizeX,
+                 tempTexture->sizeY, 0, type, GL_UNSIGNED_BYTE,
+                 tempTexture->data);
 
     free(tempTexture->data);
     free(tempTexture);

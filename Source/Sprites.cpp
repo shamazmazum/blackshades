@@ -132,9 +132,9 @@ void Sprites::LoadFlareTexture(const char *fileName)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
-    gluBuild2DMipmaps(GL_TEXTURE_2D, type, tempTexture->sizeX,
-                      tempTexture->sizeY, type, GL_UNSIGNED_BYTE,
-                      tempTexture->data);
+    glTexImage2D(GL_TEXTURE_2D, 0, type, tempTexture->sizeX,
+                 tempTexture->sizeY, 0, type, GL_UNSIGNED_BYTE,
+                 tempTexture->data);
     free(tempTexture->data);
     free(tempTexture);
   }
@@ -164,9 +164,9 @@ void Sprites::LoadMuzzleFlareTexture(const char *fileName)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
-    gluBuild2DMipmaps(GL_TEXTURE_2D, type, tempTexture->sizeX,
-                      tempTexture->sizeY, type, GL_UNSIGNED_BYTE,
-                      tempTexture->data);
+    glTexImage2D(GL_TEXTURE_2D, 0, type, tempTexture->sizeX,
+                 tempTexture->sizeY, 0, type, GL_UNSIGNED_BYTE,
+                 tempTexture->data);
     free(tempTexture->data);
     free(tempTexture);
   }
@@ -196,9 +196,9 @@ void Sprites::LoadSmokeTexture(const char *fileName)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
-    gluBuild2DMipmaps(GL_TEXTURE_2D, type, tempTexture->sizeX,
-                      tempTexture->sizeY, type, GL_UNSIGNED_BYTE,
-                      tempTexture->data);
+    glTexImage2D(GL_TEXTURE_2D, 0, type, tempTexture->sizeX,
+                 tempTexture->sizeY, 0, type, GL_UNSIGNED_BYTE,
+                 tempTexture->data);
     free(tempTexture->data);
     free(tempTexture);
   }
@@ -228,9 +228,9 @@ void Sprites::LoadBloodTexture(const char *fileName)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
-    gluBuild2DMipmaps(GL_TEXTURE_2D, type, tempTexture->sizeX,
-                      tempTexture->sizeY, type, GL_UNSIGNED_BYTE,
-                      tempTexture->data);
+    glTexImage2D(GL_TEXTURE_2D, 0, type, tempTexture->sizeX,
+                 tempTexture->sizeY, 0, type, GL_UNSIGNED_BYTE,
+                 tempTexture->data);
     free(tempTexture->data);
     free(tempTexture);
   }
@@ -260,9 +260,9 @@ void Sprites::LoadRainTexture(const char *fileName)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
-    gluBuild2DMipmaps(GL_TEXTURE_2D, type, tempTexture->sizeX,
-                      tempTexture->sizeY, type, GL_UNSIGNED_BYTE,
-                      tempTexture->data);
+    glTexImage2D(GL_TEXTURE_2D, 0, type, tempTexture->sizeX,
+                 tempTexture->sizeY, 0, type, GL_UNSIGNED_BYTE,
+                 tempTexture->data);
     free(tempTexture->data);
     free(tempTexture);
   }
@@ -292,9 +292,9 @@ void Sprites::LoadSnowTexture(const char *fileName)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
-    gluBuild2DMipmaps(GL_TEXTURE_2D, type, tempTexture->sizeX,
-                      tempTexture->sizeY, type, GL_UNSIGNED_BYTE,
-                      tempTexture->data);
+    glTexImage2D(GL_TEXTURE_2D, 0, type, tempTexture->sizeX,
+                 tempTexture->sizeY, 0, type, GL_UNSIGNED_BYTE,
+                 tempTexture->data);
     free(tempTexture->data);
     free(tempTexture);
   }
@@ -324,9 +324,9 @@ void Sprites::LoadBulletTexture(const char *fileName)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
-    gluBuild2DMipmaps(GL_TEXTURE_2D, type, tempTexture->sizeX,
-                      tempTexture->sizeY, type, GL_UNSIGNED_BYTE,
-                      tempTexture->data);
+    glTexImage2D(GL_TEXTURE_2D, 0, type, tempTexture->sizeX,
+                 tempTexture->sizeY, 0, type, GL_UNSIGNED_BYTE,
+                 tempTexture->data);
     free(tempTexture->data);
     free(tempTexture);
   }
