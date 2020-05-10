@@ -1,0 +1,34 @@
+Black Shades Elite 
+
+This is the new-ish version "Black Shades", which uses the original code, but
+will add yet to be determined features while still keeping the original 
+functionality and gameplay.
+
+Currently the source is being cleaned up, and slowly redesigned so extra 
+features are possible.  The number 1 feature will be additional network play.
+
+Other more minor features are in the works or done:
+
+- Help screen (shows keys used to play the game) (done).
+- The ability to change the resolution, (done)
+- Fullscreen option in the config. (done)
+- Mouse grab for window mode. (done)
+- Fix framerate limiting in loop. (done - needs testing)
+- Sound issus (relate to fps limiting?).
+- Saving (just a file with a mission number?)
+- A model/anim viewer
+- Button widget (partial - drawing still separate)
+- Input widget
+- Mission class
+- Civilian class that inherits Person (for all AI stuff in GameTick.cpp)
+- Weapon class (partially done)
+- Net framework
+  - udp setup
+  - creating packets
+  - what to send?
+  - Multiplayer option
+  - Game room
+
+Thanks to David Rosen.
+ - GPL Licensed with permission from David Rosen
+ - David Rosen reserves the right to Black Shades 2
