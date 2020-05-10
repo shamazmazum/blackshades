@@ -188,8 +188,6 @@ void Game::EventLoop(void)
   gQuit = false;
   int step = 1, framecount = 0, spscount = 0;
 
-  init_sdlkeymap();
-
   while(!gQuit) {
     start = SDL_GetTicks();
 
@@ -212,7 +210,7 @@ void Game::EventLoop(void)
     multiplier = oldmult;
 
     if(DrawGLScene()) {
-      SDL_GL_SwapBuffers();
+      SDL_GL_SwapWindow (main_window);
     } else {
       printf("Eventloop(): couldn't draw scene, exiting...");
       gQuit = true;

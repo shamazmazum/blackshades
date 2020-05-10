@@ -23,104 +23,271 @@
 
 #include "SDL_funcs.h"
 extern Config config;
-
-static int sdlkeymap[SDLK_LAST];
+SDL_Window *main_window = NULL;
+static SDL_Renderer *renderer = NULL;
 
 static unsigned char ourkeys[16];
 
-void init_sdlkeymap()
+static int key_sdl2mac (int key)
 {
-  int i;
+    int res;
 
-  for(i = 0; i < SDLK_LAST; i++) {
-    sdlkeymap[i] = -1;
-  }
+    switch (key) {
+    case SDLK_1:
+        res = MAC_1_KEY;
+        break;
+    case SDLK_2:
+        res = MAC_2_KEY;
+        break;
+    case SDLK_3:
+        res = MAC_3_KEY;
+        break;
+    case SDLK_4:
+        res = MAC_4_KEY;
+        break;
+    case SDLK_5:
+        res = MAC_5_KEY;
+        break;
+    case SDLK_6:
+        res = MAC_6_KEY;
+        break;
+    case SDLK_7:
+        res = MAC_7_KEY;
+        break;
+    case SDLK_8:
+        res = MAC_8_KEY;
+        break;
+    case SDLK_9:
+        res = MAC_9_KEY;
+        break;
+    case SDLK_0:
+        res = MAC_0_KEY;
+        break;
+    case SDLK_KP_1:
+        res = MAC_NUMPAD_1_KEY;
+        break;
+    case SDLK_KP_2:
+        res = MAC_NUMPAD_2_KEY;
+        break;
+    case SDLK_KP_3:
+        res = MAC_NUMPAD_3_KEY;
+        break;
+    case SDLK_KP_4:
+        res = MAC_NUMPAD_4_KEY;
+        break;
+    case SDLK_KP_5:
+        res = MAC_NUMPAD_5_KEY;
+        break;
+    case SDLK_KP_6:
+        res = MAC_NUMPAD_6_KEY;
+        break;
+    case SDLK_KP_7:
+        res = MAC_NUMPAD_7_KEY;
+        break;
+    case SDLK_KP_8:
+        res = MAC_NUMPAD_8_KEY;
+        break;
+    case SDLK_KP_9:
+        res = MAC_NUMPAD_9_KEY;
+        break;
+    case SDLK_KP_0:
+        res = MAC_NUMPAD_0_KEY;
+        break;
+    case SDLK_a:
+        res = MAC_A_KEY;
+        break;
+    case SDLK_b:
+        res = MAC_B_KEY;
+        break;
+    case SDLK_c:
+        res = MAC_C_KEY;
+        break;
+    case SDLK_d:
+        res = MAC_D_KEY;
+        break;
+    case SDLK_e:
+        res = MAC_E_KEY;
+        break;
+    case SDLK_f:
+        res = MAC_F_KEY;
+        break;
+    case SDLK_g:
+        res = MAC_G_KEY;
+        break;
+    case SDLK_h:
+        res = MAC_H_KEY;
+        break;
+    case SDLK_i:
+        res = MAC_I_KEY;
+        break;
+    case SDLK_j:
+        res = MAC_J_KEY;
+        break;
+    case SDLK_k:
+        res = MAC_K_KEY;
+        break;
+    case SDLK_l:
+        res = MAC_L_KEY;
+        break;
+    case SDLK_m:
+        res = MAC_M_KEY;
+        break;
+    case SDLK_n:
+        res = MAC_N_KEY;
+        break;
+    case SDLK_o:
+        res = MAC_O_KEY;
+        break;
+    case SDLK_p:
+        res = MAC_P_KEY;
+        break;
+    case SDLK_q:
+        res = MAC_Q_KEY;
+        break;
+    case SDLK_r:
+        res = MAC_R_KEY;
+        break;
+    case SDLK_s:
+        res = MAC_S_KEY;
+        break;
+    case SDLK_t:
+        res = MAC_T_KEY;
+        break;
+    case SDLK_u:
+        res = MAC_U_KEY;
+        break;
+    case SDLK_v:
+        res = MAC_V_KEY;
+        break;
+    case SDLK_w:
+        res = MAC_W_KEY;
+        break;
+    case SDLK_x:
+        res = MAC_X_KEY;
+        break;
+    case SDLK_y:
+        res = MAC_Y_KEY;
+        break;
+    case SDLK_z:
+        res = MAC_Z_KEY;
+        break;
+    case SDLK_F1:
+        res = MAC_F1_KEY;
+        break;
+    case SDLK_F2:
+        res = MAC_F2_KEY;
+        break;
+    case SDLK_F3:
+        res = MAC_F3_KEY;
+        break;
+    case SDLK_F4:
+        res = MAC_F4_KEY;
+        break;
+    case SDLK_F5:
+        res = MAC_F5_KEY;
+        break;
+    case SDLK_F6:
+        res = MAC_F6_KEY;
+        break;
+    case SDLK_F7:
+        res = MAC_F7_KEY;
+        break;
+    case SDLK_F8:
+        res = MAC_F8_KEY;
+        break;
+    case SDLK_F9:
+        res = MAC_F9_KEY;
+        break;
+    case SDLK_F10:
+        res = MAC_F10_KEY;
+        break;
+    case SDLK_F11:
+        res = MAC_F11_KEY;
+        break;
+    case SDLK_F12:
+        res = MAC_F12_KEY;
+        break;
+    case SDLK_RETURN:
+        res = MAC_RETURN_KEY;
+        break;
+    case SDLK_KP_ENTER:
+        res = MAC_ENTER_KEY;
+        break;
+    case SDLK_TAB:
+        res = MAC_TAB_KEY;
+        break;
+    case SDLK_SPACE:
+        res = MAC_SPACE_KEY;
+        break;
+    case SDLK_BACKSPACE:
+        res = MAC_DELETE_KEY;
+        break;
+    case SDLK_ESCAPE:
+        res = MAC_ESCAPE_KEY;
+        break;
+    case SDLK_LCTRL:
+        res = MAC_CONTROL_KEY;
+        break;
+    case SDLK_RCTRL:
+        res = MAC_CONTROL_KEY;
+        break;
+    case SDLK_LSHIFT:
+        res = MAC_SHIFT_KEY;
+        break;
+    case SDLK_RSHIFT:
+        res = MAC_SHIFT_KEY;
+        break;
+    case SDLK_CAPSLOCK:
+        res = MAC_CAPS_LOCK_KEY;
+        break;
+    case SDLK_LALT:
+        res = MAC_OPTION_KEY;
+        break;
+    case SDLK_RALT:
+        res = MAC_OPTION_KEY;
+        break;
+    case SDLK_PAGEUP:
+        res = MAC_PAGE_UP_KEY;
+        break;
+    case SDLK_PAGEDOWN:
+        res = MAC_PAGE_DOWN_KEY;
+        break;
+    case SDLK_INSERT:
+        res = MAC_INSERT_KEY;
+        break;
+    case SDLK_DELETE:
+        res = MAC_DEL_KEY;
+        break;
+    case SDLK_HOME:
+        res = MAC_HOME_KEY;
+        break;
+    case SDLK_END:
+        res = MAC_END_KEY;
+        break;
+    case SDLK_LEFTBRACKET:
+        res = MAC_LEFT_BRACKET_KEY;
+        break;
+    case SDLK_RIGHTBRACKET:
+        res = MAC_RIGHT_BRACKET_KEY;
+        break;
+    case SDLK_UP:
+        res = MAC_ARROW_UP_KEY;
+        break;
+    case SDLK_DOWN:
+        res = MAC_ARROW_DOWN_KEY;
+        break;
+    case SDLK_LEFT:
+        res = MAC_ARROW_LEFT_KEY;
+        break;
+    case SDLK_RIGHT:
+        res = MAC_ARROW_RIGHT_KEY;
+        break;
+    default:
+        res = -1;
+        break;
+    }
 
-  sdlkeymap[SDLK_1] = MAC_1_KEY;
-  sdlkeymap[SDLK_2] = MAC_2_KEY;
-  sdlkeymap[SDLK_3] = MAC_3_KEY;
-  sdlkeymap[SDLK_4] = MAC_4_KEY;
-  sdlkeymap[SDLK_5] = MAC_5_KEY;
-  sdlkeymap[SDLK_6] = MAC_6_KEY;
-  sdlkeymap[SDLK_7] = MAC_7_KEY;
-  sdlkeymap[SDLK_8] = MAC_8_KEY;
-  sdlkeymap[SDLK_9] = MAC_9_KEY;
-  sdlkeymap[SDLK_0] = MAC_0_KEY;
-  sdlkeymap[SDLK_KP1] = MAC_NUMPAD_1_KEY;
-  sdlkeymap[SDLK_KP2] = MAC_NUMPAD_2_KEY;
-  sdlkeymap[SDLK_KP3] = MAC_NUMPAD_3_KEY;
-  sdlkeymap[SDLK_KP4] = MAC_NUMPAD_4_KEY;
-  sdlkeymap[SDLK_KP5] = MAC_NUMPAD_5_KEY;
-  sdlkeymap[SDLK_KP6] = MAC_NUMPAD_6_KEY;
-  sdlkeymap[SDLK_KP7] = MAC_NUMPAD_7_KEY;
-  sdlkeymap[SDLK_KP8] = MAC_NUMPAD_8_KEY;
-  sdlkeymap[SDLK_KP9] = MAC_NUMPAD_9_KEY;
-  sdlkeymap[SDLK_KP0] = MAC_NUMPAD_0_KEY;
-  sdlkeymap[SDLK_a] = MAC_A_KEY;
-  sdlkeymap[SDLK_b] = MAC_B_KEY;
-  sdlkeymap[SDLK_c] = MAC_C_KEY;
-  sdlkeymap[SDLK_d] = MAC_D_KEY;
-  sdlkeymap[SDLK_e] = MAC_E_KEY;
-  sdlkeymap[SDLK_f] = MAC_F_KEY;
-  sdlkeymap[SDLK_g] = MAC_G_KEY;
-  sdlkeymap[SDLK_h] = MAC_H_KEY;
-  sdlkeymap[SDLK_i] = MAC_I_KEY;
-  sdlkeymap[SDLK_j] = MAC_J_KEY;
-  sdlkeymap[SDLK_k] = MAC_K_KEY;
-  sdlkeymap[SDLK_l] = MAC_L_KEY;
-  sdlkeymap[SDLK_m] = MAC_M_KEY;
-  sdlkeymap[SDLK_n] = MAC_N_KEY;
-  sdlkeymap[SDLK_o] = MAC_O_KEY;
-  sdlkeymap[SDLK_p] = MAC_P_KEY;
-  sdlkeymap[SDLK_q] = MAC_Q_KEY;
-  sdlkeymap[SDLK_r] = MAC_R_KEY;
-  sdlkeymap[SDLK_s] = MAC_S_KEY;
-  sdlkeymap[SDLK_t] = MAC_T_KEY;
-  sdlkeymap[SDLK_u] = MAC_U_KEY;
-  sdlkeymap[SDLK_v] = MAC_V_KEY;
-  sdlkeymap[SDLK_w] = MAC_W_KEY;
-  sdlkeymap[SDLK_x] = MAC_X_KEY;
-  sdlkeymap[SDLK_y] = MAC_Y_KEY;
-  sdlkeymap[SDLK_z] = MAC_Z_KEY;
-  sdlkeymap[SDLK_F1] = MAC_F1_KEY;
-  sdlkeymap[SDLK_F2] = MAC_F2_KEY;
-  sdlkeymap[SDLK_F3] = MAC_F3_KEY;
-  sdlkeymap[SDLK_F4] = MAC_F4_KEY;
-  sdlkeymap[SDLK_F5] = MAC_F5_KEY;
-  sdlkeymap[SDLK_F6] = MAC_F6_KEY;
-  sdlkeymap[SDLK_F7] = MAC_F7_KEY;
-  sdlkeymap[SDLK_F8] = MAC_F8_KEY;
-  sdlkeymap[SDLK_F9] = MAC_F9_KEY;
-  sdlkeymap[SDLK_F10] = MAC_F10_KEY;
-  sdlkeymap[SDLK_F11] = MAC_F11_KEY;
-  sdlkeymap[SDLK_F12] = MAC_F12_KEY;
-  sdlkeymap[SDLK_RETURN] = MAC_RETURN_KEY;
-  sdlkeymap[SDLK_KP_ENTER] = MAC_ENTER_KEY;
-  sdlkeymap[SDLK_TAB] = MAC_TAB_KEY;
-  sdlkeymap[SDLK_SPACE] = MAC_SPACE_KEY;
-  sdlkeymap[SDLK_BACKSPACE] = MAC_DELETE_KEY;
-  sdlkeymap[SDLK_ESCAPE] = MAC_ESCAPE_KEY;
-  sdlkeymap[SDLK_LCTRL] = MAC_CONTROL_KEY;
-  sdlkeymap[SDLK_RCTRL] = MAC_CONTROL_KEY;
-  sdlkeymap[SDLK_LSHIFT] = MAC_SHIFT_KEY;
-  sdlkeymap[SDLK_RSHIFT] = MAC_SHIFT_KEY;
-  sdlkeymap[SDLK_CAPSLOCK] = MAC_CAPS_LOCK_KEY;
-  sdlkeymap[SDLK_LALT] = MAC_OPTION_KEY;
-  sdlkeymap[SDLK_RALT] = MAC_OPTION_KEY;
-  sdlkeymap[SDLK_PAGEUP] = MAC_PAGE_UP_KEY;
-  sdlkeymap[SDLK_PAGEDOWN] = MAC_PAGE_DOWN_KEY;
-  sdlkeymap[SDLK_INSERT] = MAC_INSERT_KEY;
-  sdlkeymap[SDLK_DELETE] = MAC_DEL_KEY;
-  sdlkeymap[SDLK_HOME] = MAC_HOME_KEY;
-  sdlkeymap[SDLK_END] = MAC_END_KEY;
-  sdlkeymap[SDLK_LEFTBRACKET] = MAC_LEFT_BRACKET_KEY;
-  sdlkeymap[SDLK_RIGHTBRACKET] = MAC_RIGHT_BRACKET_KEY;
-  sdlkeymap[SDLK_UP] = MAC_ARROW_UP_KEY;
-  sdlkeymap[SDLK_DOWN] = MAC_ARROW_DOWN_KEY;
-  sdlkeymap[SDLK_LEFT] = MAC_ARROW_LEFT_KEY;
-  sdlkeymap[SDLK_RIGHT] = MAC_ARROW_RIGHT_KEY;
-
-  return;
+    return res;
 }
 
 void GetKeys(unsigned long *keys)
@@ -136,8 +303,7 @@ void DoSDLKey(SDL_Event * event)
   int mask;
   int press = (event->type == SDL_KEYDOWN) ? 1 : 0;
 
-  mackey = sdlkeymap[event->key.keysym.sym];
-
+  mackey = key_sdl2mac (event->key.keysym.sym);
   if(mackey != -1) {
     index = mackey / 8;
     mask = 1 << (mackey % 8);
@@ -149,47 +315,53 @@ void DoSDLKey(SDL_Event * event)
     }
   }
 
-  if(event->key.keysym.unicode && !(event->key.keysym.unicode & 0xFF80)) {
-//#if _GAME
-    Game::getInstance().HandleKeyDown(event->key.keysym.unicode);
-//#endif
-#if _VIEWER
-    Viewer::getInstance().HandleKeyDown(event->key.keysym.unicode);
-#endif
-  }
+//   if(event->key.keysym.unicode && !(event->key.keysym.unicode & 0xFF80)) {
+// //#if _GAME
+//     Game::getInstance().HandleKeyDown(event->key.keysym.unicode);
+// //#endif
+// #if _VIEWER
+//     Viewer::getInstance().HandleKeyDown(event->key.keysym.unicode);
+// #endif
+//   }
 }
 
 void ProcessSDLEvents()
 {
-  SDL_Event event;
+    SDL_Event event;
 
-  if(SDL_PollEvent(&event)) {
-    do {
-      switch (event.type) {
+    while (SDL_PollEvent(&event)) {
+        switch (event.type) {
         case SDL_KEYDOWN:
-          if(event.key.keysym.sym == SDLK_RETURN &&
-             event.key.keysym.mod & KMOD_ALT) {
-            SDL_WM_ToggleFullScreen(SDL_GetVideoSurface());
-            break;
-          }
-          if(event.key.keysym.sym == SDLK_g && event.key.keysym.mod & KMOD_CTRL) {
-            if(SDL_WM_GrabInput(SDL_GRAB_QUERY) == SDL_GRAB_OFF) {
-              SDL_WM_GrabInput(SDL_GRAB_ON);
-              SDL_ShowCursor(SDL_DISABLE);
-            } else {
-              SDL_WM_GrabInput(SDL_GRAB_OFF);
-              SDL_ShowCursor(SDL_ENABLE);
+            // if(event.key.keysym.sym == SDLK_RETURN &&
+            //    event.key.keysym.mod & KMOD_ALT) {
+            //   SDL_WM_ToggleFullScreen(SDL_GetVideoSurface());
+            //   break;
+            // }
+            if(event.key.keysym.sym == SDLK_g && event.key.keysym.mod & KMOD_CTRL) {
+                if(SDL_GetRelativeMouseMode () == SDL_FALSE) {
+                    SDL_SetRelativeMouseMode(SDL_TRUE);
+                } else {
+                    SDL_SetRelativeMouseMode(SDL_FALSE);
+                }
             }
-            break;
-          }
+            /* Fall through */
         case SDL_KEYUP:
-          DoSDLKey(&event);
-          break;
+            DoSDLKey(&event);
+            break;
         case SDL_QUIT:
-          exit(0);
-      }
-    } while(SDL_PollEvent(&event));
-  }
+            exit(0);
+        }
+    }
+}
+
+static void Cleanup ()
+{
+    if (main_window != NULL)
+        SDL_DestroyWindow (main_window);
+    if (renderer != NULL)
+        SDL_DestroyRenderer (renderer);
+
+    SDL_Quit();
 }
 
 int InitGL(void)
@@ -203,7 +375,7 @@ int InitGL(void)
     exit(EXIT_FAILURE);
   }
 
-  atexit(SDL_Quit);
+  atexit(Cleanup);
 
   SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 5);
   SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 5);
@@ -211,45 +383,34 @@ int InitGL(void)
   SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
   SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
-  if(screenwidth < 640 || screenheight < 480) {
-    int fsFlag = 0;
-    if(config.fullscreen == 1) {
-      fsFlag = SDL_FULLSCREEN;
-    }
-    if(SDL_SetVideoMode(640, 480, 0, SDL_OPENGL | fsFlag) == NULL) {
-      fprintf(stderr, "(OpenGL) SDL SetVideoMode failed: %s\n", SDL_GetError());
+  Uint32 flags = SDL_WINDOW_OPENGL;
+  flags |= (config.fullscreen)? SDL_WINDOW_FULLSCREEN: 0;
+
+  main_window = SDL_CreateWindow ("Black Shades Elite",
+                                  SDL_WINDOWPOS_UNDEFINED,
+                                  SDL_WINDOWPOS_UNDEFINED,
+                                  screenwidth,
+                                  screenheight,
+                                  flags);
+  if (main_window == NULL) {
+      fprintf(stderr, "(OpenGL) SDL_CreateWindow failed: %s\n", SDL_GetError());
       exit(EXIT_FAILURE);
-    }
-  } else {
-    int fsFlag = 0;
-    if(config.fullscreen == 1) {
-      fsFlag = SDL_FULLSCREEN;
-    }
-    if(SDL_SetVideoMode
-       (screenwidth, screenheight, 0, SDL_OPENGL | fsFlag) == NULL) {
-      fprintf(stderr, "(OpenGL) SDL SetVideoMode failed: %s\n", SDL_GetError());
+  }
+  /* XXX */
+  config.bpp = 32;
+
+  renderer = SDL_CreateRenderer (main_window, -1, 0);
+  if (renderer == NULL) {
+      fprintf(stderr, "(OpenGL) SDL_CreateRenderer failed: %s\n", SDL_GetError());
       exit(EXIT_FAILURE);
-    }
   }
-
-  const SDL_VideoInfo* info = SDL_GetVideoInfo();
-
-  if(!info) {
-    fprintf(stdout, "Video query failed: %s\n",
-             SDL_GetError());
-  }
-
-  config.bpp = info->vfmt->BitsPerPixel;
-
-  SDL_WM_SetCaption("Black Shades Elite", "Black Shades Elite");
-
-  SDL_EnableUNICODE(1);         /* toggle it to ON */
 
   if(config.fullscreen) {
-    SDL_WM_GrabInput(SDL_GRAB_ON);
-    SDL_ShowCursor(0);
+      SDL_SetRelativeMouseMode (SDL_TRUE);
+      SDL_GetWindowSize (main_window, &config.screenwidth, &config.screenheight);
   }
 
+  SDL_GL_SetSwapInterval (1);
   glAlphaFunc(GL_GREATER, 0.01);
   glDepthFunc(GL_LESS);
 

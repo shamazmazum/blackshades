@@ -400,8 +400,6 @@ void Viewer::EventLoop()
   gQuit = false;
   int step = 1, framecount = 0, spscount = 0;
 
-  init_sdlkeymap();
-
   while(!gQuit) {
     start = SDL_GetTicks();
 

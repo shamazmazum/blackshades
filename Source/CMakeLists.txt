@@ -1,4 +1,4 @@
-include_directories (${OPENGL_INCLUDE_DIR} ${SDL_INCLUDE_DIR}
+include_directories (${OPENGL_INCLUDE_DIR} ${SDL2_INCLUDE_DIR}
   ${VORBIS_INCLUDE_DIR} ${OPENAL_INCLUDE_DIR} ${ALUT_INCLUDE_DIR})
 
 add_executable (blackshades
@@ -40,5 +40,5 @@ target_link_libraries (blackshades
   ${OPENAL_LIBRARY}
   ${ALUT_LIBRARY}
   OpenGL::GL OpenGL::GLU
-  ${SDL_LIBRARY}
+  ${SDL2_LIBRARY}
   ${VORBIS_LIBRARIES})

@@ -86,10 +86,10 @@ void InitMouse()
 void MoveMouse(int xcoord, int ycoord, Point * mouseloc)
 {
   /* TODO: mouse warp is annoying when we can just grab the mouse */
-  if(config.fullscreen) {
-    SDL_WarpMouse(xcoord, ycoord);
-    SDL_PumpEvents();
-  }
+  // if(config.fullscreen) {
+  //   SDL_WarpMouse(xcoord, ycoord);
+  //   SDL_PumpEvents();
+  // }
   GetMouse(mouseloc);
 }
 

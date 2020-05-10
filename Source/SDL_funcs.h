@@ -24,11 +24,9 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 
-#include <SDL/SDL.h>
+#include <SDL.h>
 #include <AL/al.h>
 #include <AL/alut.h>
-
-void init_sdlkeymap();
 
 void GetKeys(unsigned long *keys);
 
@@ -39,5 +37,8 @@ void ProcessSDLEvents();
 int InitGL();
 
 GLvoid ReSizeGLScene(float fov, float near, float far);
+
+/* KLUDGE */
+extern SDL_Window *main_window;
 
 #endif //_SDL_FUNCS_H_

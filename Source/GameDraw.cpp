@@ -21,6 +21,7 @@
 #include "Weapon.h"
 #include "TGALoader.h"
 #include "Game.h"
+#include "SDL_funcs.h"
 
 extern double multiplier;
 
@@ -196,7 +197,7 @@ void Game::LoadingScreen(float percent)
   text.glPrint((int)(screenwidth * 0.4375), (int)(screenheight * 0.406),
                "LOADING...", 1, 1, screenwidth, screenheight);
 
-  SDL_GL_SwapBuffers();
+  SDL_GL_SwapWindow (main_window);
 }
 
 void Game::DrawMouse(void)

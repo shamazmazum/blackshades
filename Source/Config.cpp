@@ -53,6 +53,12 @@ Config::Config()
 
   ReadConfig(cfgFile);
 
+  // Sanity checks for fullscreen mode
+  if (!fullscreen) {
+      screenwidth = (screenwidth > 640)? screenwidth: 640;
+      screenheight = (screenheight > 480)? screenheight:480;
+  }
+
   //highscore
   hsFile = "Data/Highscore";
   highscore = 0;
