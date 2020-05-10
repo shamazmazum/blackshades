@@ -469,7 +469,7 @@ void Game::DrawGame(void)
       GLfloat LightAmbient[] =
           { fog.fogcolor.r / 4, fog.fogcolor.g / 4, fog.fogcolor.b / 4, 1.0f };
       GLfloat LightDiffuse[] =
-          { fog.fogcolor.r * 1.6, fog.fogcolor.g * 1.6, fog.fogcolor.r * 1.6,
+          { fog.fogcolor.r * 1.6f, fog.fogcolor.g * 1.6f, fog.fogcolor.r * 1.6f,
 1.0f };
 
       glLightfv(GL_LIGHT0, GL_AMBIENT, LightAmbient);
@@ -477,10 +477,10 @@ void Game::DrawGame(void)
     } else {
 
       GLfloat LightAmbient[] =
-          { fog.fogcolor.r * .8, fog.fogcolor.g * .8, fog.fogcolor.b * .8,
+          { fog.fogcolor.r * .8f, fog.fogcolor.g * .8f, fog.fogcolor.b * .8f,
 1.0f };
       GLfloat LightDiffuse[] =
-          { fog.fogcolor.r * .8, fog.fogcolor.g * .8, fog.fogcolor.r * .8,
+          { fog.fogcolor.r * .8f, fog.fogcolor.g * .8f, fog.fogcolor.r * .8f,
 1.0f };
 
       glLightfv(GL_LIGHT0, GL_AMBIENT, LightAmbient);
@@ -502,7 +502,7 @@ void Game::DrawGame(void)
 
     //light
     GLfloat LightAmbient[] = { 0, 0, 0, 1.0f };
-    GLfloat LightDiffuse[] = { .1 + sinefluct / 5, 0, 0, 1.0f };
+    GLfloat LightDiffuse[] = { .1f + sinefluct / 5, 0, 0, 1.0f };
 
     glLightfv(GL_LIGHT0, GL_AMBIENT, LightAmbient);
     glLightfv(GL_LIGHT0, GL_DIFFUSE, LightDiffuse);

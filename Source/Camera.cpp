@@ -21,6 +21,7 @@
 #include <stdlib.h>
 
 #include "Camera.h"
+#include "Support.h"
 
 void Camera::Apply()
 {

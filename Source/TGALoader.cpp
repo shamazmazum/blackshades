@@ -18,6 +18,7 @@
  * USA
  */
 #include "TGALoader.h"
+#include "Support.h"
 
 TGAImageRec *LoadTGA(char *filename)
 {

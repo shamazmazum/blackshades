@@ -1,9 +1,7 @@
 #include "Server.h"
 
-Server::Server()
+Server::Server() : NetCommon()
 {
-  NetCommon::NetCommon();
-
   memset((char *) &local_sock, 0, sizeof(local_sock));
   local_sock.sin_family = AF_INET;
   local_sock.sin_port = htons(PORT);

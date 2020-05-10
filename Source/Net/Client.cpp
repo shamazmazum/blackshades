@@ -2,10 +2,8 @@
 
 #define SRV_IP "0.0.0.0"
 
-Client::Client()
+Client::Client() : NetCommon()
 {
-  NetCommon::NetCommon();
-
   memset((char *)&remote_sock, 0, sizeof(remote_sock));
   remote_sock.sin_family = AF_INET;
   remote_sock.sin_port = htons(port);

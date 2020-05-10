@@ -24,6 +24,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#include "Support.h"
+
 /**> CONSTANT DECLARATIONS <**/
 // Mac Keyboard Codes
 #define	MAC_1_KEY				0x12
