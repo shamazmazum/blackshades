@@ -1,6 +1,6 @@
 #include "NetCommon.h"
 
-void nerror(char *s)
+void nerror(const char *s)
 {
   perror(s);
   exit(1);

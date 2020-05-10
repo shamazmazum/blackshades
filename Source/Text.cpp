@@ -81,7 +81,8 @@ void Text::BuildFont()          // Build Our Font Display List
   }                             // Loop Until All 256 Are Built
 }
 
-void Text::glPrint(GLint x, GLint y, char *string, int set, float size, float width, float height)      // Where The Printing Happens
+void Text::glPrint(GLint x, GLint y, const char *string, int set, float size,
+                   float width, float height)      // Where The Printing Happens
 {
   if(set > 1) {
     set = 1;

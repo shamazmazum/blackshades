@@ -13,7 +13,7 @@
 #define BUFLEN 512
 #define PORT 9930
 
-void nerror(char *s);
+void nerror(const char *s);
 
 class NetCommon
 {

@@ -36,7 +36,7 @@ public:
 
   void LoadFontTexture(const char *fileName);
   void BuildFont();
-  void glPrint(GLint x, GLint y, char *string, int set, float size, float width,
+  void glPrint(GLint x, GLint y, const char *string, int set, float size, float width,
                float height);
 
    ~Text() {
