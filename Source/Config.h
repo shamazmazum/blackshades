@@ -56,7 +56,7 @@ public:
   int customlevels;
   int musictoggle;
   int azertykeyboard;
-
+  int invertmouse;
 };
 
 #endif

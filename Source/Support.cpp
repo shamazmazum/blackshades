@@ -69,7 +69,7 @@ void GetMouseRel(Point * p)
   SDL_GetRelativeMouseState(&x, &y);
 
   p->h = x;
-  p->v = y;
+  p->v = (config.invertmouse)? -y: y;
 }
 
 // Mouse button click: Left 1, right 2

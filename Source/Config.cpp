@@ -44,6 +44,7 @@ Config::Config()
   customlevels = 0;
   musictoggle = 1;
   azertykeyboard = 0;
+  invertmouse = 0;
   
   const char *cfgFile = "config.txt";
 
@@ -123,6 +124,9 @@ bool Config::ReadConfig(const char *configFile)
     ipstream.ignore(256, '\n');
     ipstream.ignore(256, '\n');
     ipstream >> azertykeyboard;
+    ipstream.ignore(256, '\n');
+    ipstream.ignore(256, '\n');
+    ipstream >> invertmouse;
     ipstream.close();
     std::cout << "debug: " << debug << std::endl;
     return true;
@@ -160,6 +164,8 @@ void Config::WriteConfig(const char *configFile)
   opstream << musictoggle;
   opstream << "\nazerty keyboard:\n";
   opstream << azertykeyboard;
+  opstream << "\ninvertmouse:\n";
+  opstream << invertmouse;
   opstream.close();
 }
 
