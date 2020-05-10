@@ -24,6 +24,6 @@
 /**> HEADER FILES <**/
 #include <cmath>
 
-double fast_sqrt(register double arg);
+double fast_sqrt(double arg);
 
 #endif

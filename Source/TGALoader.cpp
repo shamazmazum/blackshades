@@ -20,7 +20,7 @@
 #include "TGALoader.h"
 #include "Support.h"
 
-TGAImageRec *LoadTGA(char *filename)
+TGAImageRec *LoadTGA(const char *filename)
 {
   GLubyte TGAheader[12] = { 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0 };       // Uncompressed TGA Header
   GLubyte TGAcompare[12];       // Used To Compare TGA Header

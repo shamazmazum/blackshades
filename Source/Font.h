@@ -32,7 +32,7 @@ public:
   GLuint FontTexture;
   GLuint base;
 
-  void LoadFontTexture(char *fileName);
+  void LoadFontTexture(const char *fileName);
   void BuildFont();
 
    ~Font() {

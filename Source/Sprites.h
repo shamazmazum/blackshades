@@ -89,13 +89,13 @@ public:
                  int aowner);
 
   void DoStuff();
-  void LoadMuzzleFlareTexture(char *fileName);
-  void LoadFlareTexture(char *fileName);
-  void LoadSmokeTexture(char *fileName);
-  void LoadBulletTexture(char *fileName);
-  void LoadBloodTexture(char *fileName);
-  void LoadSnowTexture(char *fileName);
-  void LoadRainTexture(char *fileName);
+  void LoadMuzzleFlareTexture(const char *fileName);
+  void LoadFlareTexture(const char *fileName);
+  void LoadSmokeTexture(const char *fileName);
+  void LoadBulletTexture(const char *fileName);
+  void LoadBloodTexture(const char *fileName);
+  void LoadSnowTexture(const char *fileName);
+  void LoadRainTexture(const char *fileName);
 
    ~Sprites() {
     glDeleteTextures(1, (const GLuint *)&muzzleflaretextureptr);

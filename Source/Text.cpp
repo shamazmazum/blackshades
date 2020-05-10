@@ -20,7 +20,7 @@
 /**> HEADER FILES <**/
 #include "Text.h"
 
-void Text::LoadFontTexture(char *fileName)
+void Text::LoadFontTexture(const char *fileName)
 {
   TGAImageRec *tempTexture;
   GLuint type;

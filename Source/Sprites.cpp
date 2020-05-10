@@ -108,7 +108,7 @@ int Sprites::DeleteSprite(int which)
   return 0;
 }
 
-void Sprites::LoadFlareTexture(char *fileName)
+void Sprites::LoadFlareTexture(const char *fileName)
 {
   TGAImageRec *tempTexture;
   GLuint type;
@@ -140,7 +140,7 @@ void Sprites::LoadFlareTexture(char *fileName)
   }
 }
 
-void Sprites::LoadMuzzleFlareTexture(char *fileName)
+void Sprites::LoadMuzzleFlareTexture(const char *fileName)
 {
   TGAImageRec *tempTexture;
   GLuint type;
@@ -172,7 +172,7 @@ void Sprites::LoadMuzzleFlareTexture(char *fileName)
   }
 }
 
-void Sprites::LoadSmokeTexture(char *fileName)
+void Sprites::LoadSmokeTexture(const char *fileName)
 {
   TGAImageRec *tempTexture;
   GLuint type;
@@ -204,7 +204,7 @@ void Sprites::LoadSmokeTexture(char *fileName)
   }
 }
 
-void Sprites::LoadBloodTexture(char *fileName)
+void Sprites::LoadBloodTexture(const char *fileName)
 {
   TGAImageRec *tempTexture;
   GLuint type;
@@ -236,7 +236,7 @@ void Sprites::LoadBloodTexture(char *fileName)
   }
 }
 
-void Sprites::LoadRainTexture(char *fileName)
+void Sprites::LoadRainTexture(const char *fileName)
 {
   TGAImageRec *tempTexture;
   GLuint type;
@@ -268,7 +268,7 @@ void Sprites::LoadRainTexture(char *fileName)
   }
 }
 
-void Sprites::LoadSnowTexture(char *fileName)
+void Sprites::LoadSnowTexture(const char *fileName)
 {
   TGAImageRec *tempTexture;
   GLuint type;
@@ -300,7 +300,7 @@ void Sprites::LoadSnowTexture(char *fileName)
   }
 }
 
-void Sprites::LoadBulletTexture(char *fileName)
+void Sprites::LoadBulletTexture(const char *fileName)
 {
   TGAImageRec *tempTexture;
   GLuint type;

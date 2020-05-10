@@ -19,7 +19,7 @@
  */
 #include "Font.h"
 
-void Font::LoadFontTexture(char *fileName)
+void Font::LoadFontTexture(const char *fileName)
 {
   TGAImageRec *tempTexture;
   GLuint type;

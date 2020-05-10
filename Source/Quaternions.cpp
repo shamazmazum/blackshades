@@ -312,7 +312,7 @@ void Normalise(XYZ * vectory)
   vectory->z /= d;
 }
 
-float fast_sqrt(register float arg)
+float fast_sqrt(float arg)
 {
   return sqrt(arg);
 }

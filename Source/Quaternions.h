@@ -77,7 +77,7 @@ XYZ Quat2Vector(quaternion Quat);
 void CrossProduct(XYZ P, XYZ Q, XYZ * V);
 void Normalise(XYZ * vectory);
 float normaldotproduct(XYZ point1, XYZ point2);
-float fast_sqrt(register float arg);
+float fast_sqrt(float arg);
 bool PointInTriangle(XYZ * p, XYZ normal, XYZ * p1, XYZ * p2, XYZ * p3);
 bool LineFacet(XYZ p1, XYZ p2, XYZ pa, XYZ pb, XYZ pc, XYZ * p);
 bool LineFacetd(XYZ p1, XYZ p2, XYZ pa, XYZ pb, XYZ pc, XYZ * p);

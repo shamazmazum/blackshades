@@ -21,7 +21,7 @@
 #include "Maths.h"
 
 //FIXME: Don't use this anymore...
-double fast_sqrt(register double arg)
+double fast_sqrt(double arg)
 {
   return sqrt(arg);
 }

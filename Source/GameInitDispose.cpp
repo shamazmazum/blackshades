@@ -329,9 +329,9 @@ void LoadSounds(bool musictoggle)
   alSourcef(gSourceID[shootsong], AL_MIN_GAIN, 1);
 }
 
-void LoadPersonSpriteTexture(char *fileName, GLuint * textureid);
+void LoadPersonSpriteTexture(const char *fileName, GLuint * textureid);
 
-void LoadPersonSpriteTexture(char *fileName, GLuint * textureid)
+void LoadPersonSpriteTexture(const char *fileName, GLuint * textureid)
 {
   TGAImageRec *tempTexture;
   GLuint type;

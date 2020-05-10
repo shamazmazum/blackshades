@@ -32,7 +32,7 @@ typedef struct TGAImageRec {
   GLuint sizeY;
 } TGAImageRec;
 
-TGAImageRec *LoadTGA(char *filename);
+TGAImageRec *LoadTGA(const char *filename);
 void WriteTGA(const char *filename, TGAImageRec *image, unsigned int size);
 
 #endif

@@ -410,7 +410,7 @@ int Decals::DeleteDecal(int which)
   return 0;
 }
 
-void Decals::LoadBulletHoleTexture(char *fileName)
+void Decals::LoadBulletHoleTexture(const char *fileName)
 {
   TGAImageRec *tempTexture;
   GLuint type;
@@ -442,7 +442,7 @@ void Decals::LoadBulletHoleTexture(char *fileName)
   }
 }
 
-void Decals::LoadBloodTexture(char *fileName, int which)
+void Decals::LoadBloodTexture(const char *fileName, int which)
 {
   TGAImageRec *tempTexture;
   GLuint type;
@@ -474,7 +474,7 @@ void Decals::LoadBloodTexture(char *fileName, int which)
   }
 }
 
-void Decals::LoadCraterTexture(char *fileName)
+void Decals::LoadCraterTexture(const char *fileName)
 {
   TGAImageRec *tempTexture;
   GLuint type;

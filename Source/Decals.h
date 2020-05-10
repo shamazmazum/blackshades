@@ -59,9 +59,9 @@ public:
                 Model * model, XYZ move, float rotation);
 
   void DoStuff();
-  void LoadBulletHoleTexture(char *fileName);
-  void LoadCraterTexture(char *fileName);
-  void LoadBloodTexture(char *fileName, int which);
+  void LoadBulletHoleTexture(const char *fileName);
+  void LoadCraterTexture(const char *fileName);
+  void LoadBloodTexture(const char *fileName, int which);
 
    ~Decals() {
     glDeleteTextures(1, (const GLuint *)&bulletholetextureptr);
