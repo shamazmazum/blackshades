@@ -37,7 +37,6 @@ Config::Config()
 #else
   debug = 0;
 #endif
-  vblsync = 1;
   blood = 1;
   blurness = 0;
   mainmenuness = 1;
@@ -105,9 +104,6 @@ bool Config::ReadConfig(const char *configFile)
     ipstream >> debug;
     ipstream.ignore(256, '\n');
     ipstream.ignore(256, '\n');
-    ipstream >> vblsync;
-    ipstream.ignore(256, '\n');
-    ipstream.ignore(256, '\n');
     ipstream >> blood;
     ipstream.ignore(256, '\n');
     ipstream.ignore(256, '\n');
@@ -150,8 +146,6 @@ void Config::WriteConfig(const char *configFile)
   opstream << usermousesensitivity;
   opstream << "\nShow fps and other info:\n";
   opstream << debug;
-  opstream << "\nVBL sync:\n";
-  opstream << vblsync;
   opstream << "\nBlood:\n";
   opstream << blood;
   opstream << "\nBlur:\n";

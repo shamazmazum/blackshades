@@ -49,7 +49,6 @@ public:
   int grabmouse;
   float usermousesensitivity;
   bool debug;
-  bool vblsync;
   bool blood;
   int blurness;
   bool mainmenuness;
