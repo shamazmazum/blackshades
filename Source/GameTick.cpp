@@ -1547,7 +1547,7 @@ void Game::Fire()
                     float size = 0;
 
                     //blood
-                    if(!hitstruct.joint1->modelnum == headmodel) {
+                    if(!(hitstruct.joint1->modelnum == headmodel)) {
 
                       switch(person[j].weapon.type) {
                         case sniperrifle:
@@ -1626,29 +1626,12 @@ void Game::Fire()
                          (hitstruct.hitlocation.z -
                           camera.position.z) / 4) / soundscalefactor;
 
-                    if(!hitstruct.joint1->modelnum == headmodel) {
-
-                      if(!thirdperson)
-                        alSourcef(gSourceID[bodyhitsound], AL_MIN_GAIN, 1);
-
-                      if(thirdperson)
-                        alSourcef(gSourceID[bodyhitsound], AL_MIN_GAIN, .1);
-
-                      alSourcefv(gSourceID[bodyhitsound], AL_POSITION, gLoc);
-                      alSourcePlay(gSourceID[bodyhitsound]);
-                    }
-
-                    if(hitstruct.joint1->modelnum == headmodel) {
-
-                      if(!thirdperson)
-                        alSourcef(gSourceID[headshotsound], AL_MIN_GAIN, 1);
-
-                      if(thirdperson)
-                        alSourcef(gSourceID[headshotsound], AL_MIN_GAIN, .1);
-
-                      alSourcefv(gSourceID[headshotsound], AL_POSITION, gLoc);
-                      alSourcePlay(gSourceID[headshotsound]);
-                    }
+                    int hitsound = (hitstruct.joint1->modelnum == headmodel)?
+                        headshotsound: bodyhitsound;
+                    alSourcef(gSourceID[hitsound], AL_MIN_GAIN,
+                              (thirdperson)? 0.1: 1);
+                    alSourcefv(gSourceID[hitsound], AL_POSITION, gLoc);
+                    alSourcePlay(gSourceID[hitsound]);
                   }             //with wall
 
                   if(oldend == finalwallhit) {
@@ -1752,7 +1735,7 @@ void Game::Fire()
                                                                        b->y) +
                       (c->z - b->z) * (a->z - b->z));
 
-                  if(!dot_ta <= 0 && !dot_tb <= 0) {
+                  if(dot_ta > 0 && dot_tb > 0) {
                     nearest.x =
                         a->x + ((b->x - a->x) * dot_ta) / (dot_ta + dot_tb);
 
@@ -1766,7 +1749,7 @@ void Game::Fire()
                   if(nearest.x) {
 
                     if(findDistancefast(nearest, camera.position) < 10
-                       && (thirdperson == 2 || j != 0)) {
+                       && (thirdperson || j != 0)) {
 
                       float gLoc[3];
 
@@ -2816,12 +2799,11 @@ void Game::GameTick()
 
                 person[i].lastdistancevictim = 0;
 
-                closesttarget = -1;
-
                 //Check best path
                 closesttarget = person[i].pathnum;
 
                 //Check other blocks?
+                // WHUT??
                 if((closesttarget == person[i].pathnum)) {
 
                   beginx = person[i].whichblockx - 2;

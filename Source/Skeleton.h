@@ -141,7 +141,7 @@ public:
   XYZ lowforward;
 
   int broken;
-  bool offset;
+  float offset;
 
   XYZ specialforward[5];
 
