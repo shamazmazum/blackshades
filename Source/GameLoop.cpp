@@ -210,7 +210,7 @@ void Game::EventLoop(void)
     multiplier = oldmult;
 
     if(DrawGLScene()) {
-      SDL_GL_SwapWindow (main_window);
+      SwapBuffers();
     } else {
       printf("Eventloop(): couldn't draw scene, exiting...");
       gQuit = true;

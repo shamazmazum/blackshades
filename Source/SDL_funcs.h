@@ -38,7 +38,6 @@ int InitGL();
 
 GLvoid ReSizeGLScene(float fov, float near, float far);
 
-/* KLUDGE */
-extern SDL_Window *main_window;
+void SwapBuffers();
 
 #endif //_SDL_FUNCS_H_

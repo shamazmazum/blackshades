@@ -23,7 +23,7 @@
 
 #include "SDL_funcs.h"
 extern Config config;
-SDL_Window *main_window = NULL;
+static SDL_Window *main_window = NULL;
 static SDL_Renderer *renderer = NULL;
 
 static unsigned char ourkeys[16];
@@ -444,3 +444,7 @@ GLvoid ReSizeGLScene(float fov, float near, float far)
   glLoadIdentity();
 }
 
+void SwapBuffers ()
+{
+    SDL_GL_SwapWindow (main_window);
+}

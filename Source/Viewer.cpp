@@ -478,6 +478,6 @@ Viewer &Viewer::getInstance()
   return *instance;
 }
 
-std::auto_ptr <Viewer> Viewer::instance;
+std::unique_ptr <Viewer> Viewer::instance;
 Mutex Viewer::m;
 
