@@ -29,7 +29,6 @@
 #include <stdio.h>
 #include <DrawSprocket.h>       // DrawSprocket
 #include <agl.h>                // Apple's OpenGL
-#include <glu.h>                // Used for setting perspective and making objects
 #include <tk.h>                 // Used for loading images
 
 

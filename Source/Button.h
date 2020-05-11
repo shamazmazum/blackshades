@@ -22,7 +22,6 @@
 
 #include <string>
 #include <GL/gl.h>
-#include <GL/glu.h>
 
 #include "Quaternions.h"
 #include "Window.h"

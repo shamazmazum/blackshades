@@ -22,7 +22,6 @@
 
 #include "Quaternions.h"
 #include <GL/gl.h>
-#include <GL/glu.h>
 #include "Files.h"
 #include "TGALoader.h"
 #include "Quaternions.h"

@@ -22,7 +22,6 @@
 
 #include "Quaternions.h"
 #include <GL/gl.h>
-#include <GL/glu.h>
 
 #include <string>
 #include <vector>
