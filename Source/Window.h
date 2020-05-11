@@ -74,7 +74,7 @@ protected:
   }
 
 private:
-  static std::auto_ptr < WindowMgr > instance;
+  static std::unique_ptr < WindowMgr > instance;
   static Mutex m;
   Window *root;
 };

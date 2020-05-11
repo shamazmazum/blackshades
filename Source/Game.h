@@ -228,7 +228,7 @@ public:
    }
 
 private:
-  static std::auto_ptr <Game> instance;
+  static std::unique_ptr <Game> instance;
   static Mutex m;
 };
 

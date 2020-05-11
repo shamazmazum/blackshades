@@ -54,5 +54,5 @@ WindowMgr & WindowMgr::getInstance()
   return *instance;
 }
 
-std::auto_ptr < WindowMgr > WindowMgr::instance;
+std::unique_ptr < WindowMgr > WindowMgr::instance;
 Mutex WindowMgr::m;

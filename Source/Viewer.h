@@ -125,7 +125,7 @@ public:
    }
 
 private:
-  static std::auto_ptr <Viewer> instance;
+  static std::unique_ptr <Viewer> instance;
   static Mutex m;
 };
 

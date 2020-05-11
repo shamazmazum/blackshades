@@ -28,5 +28,5 @@ Game &Game::getInstance()
   return *instance;
 }
 
-std::auto_ptr <Game> Game::instance;
+std::unique_ptr <Game> Game::instance;
 Mutex Game::m;
