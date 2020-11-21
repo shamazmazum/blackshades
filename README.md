@@ -1,5 +1,5 @@
 # Black Shades
-[![Build Status](https://travis-ci.com/shamazmazum/blackshades.svg?branch=master)](https://travis-ci.com/shamazmazum/blackshades)
+[![Build Status](https://api.cirrus-ci.com/github/shamazmazum/blackshades.svg)](https://cirrus-ci.com/github/shamazmazum/blackshades)
 
 By David Rosen (SDL2 port — Vasily Postnicov)
 
