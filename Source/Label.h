@@ -20,7 +20,6 @@
 #ifndef _GUI_LABEL_H_
 #define _GUI_LABEL_H_
 
-#include "Quaternions.h"
 #include <GL/gl.h>
 
 #include <string>
@@ -30,26 +29,26 @@
 
 class Label:public Window {
 public:
-  Label();
-  ~Label() {
-    text.clear();
-  };
-  void setLabel(float xpos, float ypos, float size);
-  void setFont(int set, GLuint _base, GLuint _texture);
-  void setText(const char *text);
-  void setColor(Color _color);
-  void draw();
+    Label();
+    ~Label() {
+        text.clear();
+    };
+    void setLabel(float xpos, float ypos, float size);
+    void setFont(int set, GLuint _base, GLuint _texture);
+    void setText(const char *text);
+    void setColor(Color _color);
+    void draw();
 
 private:
-  GLfloat xpos, ypos;
-  float size;
-  string text;
-  Color color;
+    GLfloat xpos, ypos;
+    float size;
+    std::string text;
+    Color color;
 
-  //Font stuff
-  int fontSet;
-  GLuint texture;
-  GLuint base;
+    //Font stuff
+    int fontSet;
+    GLuint texture;
+    GLuint base;
 };
 
 #endif

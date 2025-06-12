@@ -38,12 +38,12 @@ void Window::draw()
 
 Window *Window::getWindow(const char *winName)
 {
-  for(unsigned int i = 0; i < children.size(); i++) {
-    if(string(children[i]->getName()) == winName) {
-      return children[i];
+    for(unsigned int i = 0; i < children.size(); i++) {
+        if(std::string(children[i]->getName()) == winName) {
+            return children[i];
+        }
     }
-  }
-  return 0;
+    return 0;
 }
 
 WindowMgr & WindowMgr::getInstance()

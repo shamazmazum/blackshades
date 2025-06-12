@@ -31,7 +31,6 @@
 #define DEGREES 1
 #define deg2rad .0174532925
 
-using namespace std;
 typedef float Matrix_t[4][4];
 struct euler {
   float x, y, z;

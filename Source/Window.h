@@ -20,7 +20,6 @@
 #ifndef _GUI_WINDOW_H_
 #define _GUI_WINDOW_H_
 
-#include "Quaternions.h"
 #include <GL/gl.h>
 
 #include <string>
@@ -30,29 +29,29 @@
 
 class Window {
 public:
-  Window() {
-  };
-  virtual ~Window();
+    Window() {
+    };
+    virtual ~Window();
 
-  const char *getName() {
-    return name.c_str();
-  }
-  void attach(Window *window) {
-    children.push_back(window);
-    //printf("'%s' children: %u\n", name.c_str(), children.size());
-  }
-  Window *getWindow(const char *winName);
-  void setName(const char *winName) {
-    name = winName;
-  }
+    const char *getName() {
+        return name.c_str();
+    }
+    void attach(Window *window) {
+        children.push_back(window);
+        //printf("'%s' children: %u\n", name.c_str(), children.size());
+    }
+    Window *getWindow(const char *winName);
+    void setName(const char *winName) {
+        name = winName;
+    }
 
-  virtual void draw();
+    virtual void draw();
 
 protected:
-  std::vector <Window*>children;
+    std::vector <Window*>children;
 
 private:
-  string name;
+    std::string name;
 };
 
 class WindowMgr {

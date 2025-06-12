@@ -430,7 +430,7 @@ void Game::InitGame()
 
     difficulty = .8;
 
-    ifstream ipstream("Data/customlevels.txt");
+    std::ifstream ipstream("Data/customlevels.txt");
 
     if(!ipstream) {
       config.customlevels = 0;
